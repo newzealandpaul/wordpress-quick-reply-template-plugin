@@ -40,7 +40,7 @@ function pw_quick_reply_template_comment_script(){
 		var overloaded_comment_reply_open_func = commentReply.open
 
 		commentReply.open = function(id,p,a){ 
-		    overloaded_comment_reply_open_func(id,p,a);
+		    var return_value = overloaded_comment_reply_open_func(id,p,a);
 				if('$parent_file' == "index.php"){
 					var name = jQuery("#comment-"+id+" cite")[0].innerHTML;
 				}else{
@@ -54,6 +54,7 @@ function pw_quick_reply_template_comment_script(){
 				content = content.replace(/%NAME%/g, name);
 				content = content.replace(/%FIRST_NAME%/g, first_name);
 		    jQuery('#replycontent')[0].value = content;
+				return return_value;
 		}
 	}
 	</script>
