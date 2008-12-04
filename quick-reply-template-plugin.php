@@ -30,7 +30,8 @@ define('PW_QUICK_REPLY_TEMPLATE_NAME', "Quick Reply Template");
 // Script that will be inserted into edit-comments.php
 
 function pw_quick_reply_template_comment_script(){
-	$content = addslashes(get_option(PW_QUICK_REPLY_TEMPLATE_OPTION));
+	$content = str_replace("\n", "\\n", addslashes(get_option(PW_QUICK_REPLY_TEMPLATE_OPTION)));
+	$content = str_replace("\r", "", $content);
 	
 	echo <<<SCRIPT
 	<script type='text/javascript'>
@@ -45,8 +46,8 @@ function pw_quick_reply_template_comment_script(){
 					first_name = name.match(/(.*?) /)[1];
 				}
 				var content = "$content";
-				content = content.replace(/%NAME%/, name);
-				content = content.replace(/%FIRST_NAME%/, first_name);
+				content = content.replace(/%NAME%/g, name);
+				content = content.replace(/%FIRST_NAME%/g, first_name);
 		    jQuery('#replycontent')[0].value = content;
 		}
 	}
