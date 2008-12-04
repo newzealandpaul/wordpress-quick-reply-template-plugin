@@ -30,9 +30,10 @@ define('PW_QUICK_REPLY_TEMPLATE_NAME', "Quick Reply Template");
 // Script that will be inserted into edit-comments.php
 
 function pw_quick_reply_template_comment_script(){
+	global $parent_file;
 	$content = str_replace("\n", "\\n", addslashes(get_option(PW_QUICK_REPLY_TEMPLATE_OPTION)));
 	$content = str_replace("\r", "", $content);
-	
+
 	echo <<<SCRIPT
 	<script type='text/javascript'>
 	if (!(typeof commentReply == 'undefined')){
@@ -40,7 +41,11 @@ function pw_quick_reply_template_comment_script(){
 
 		commentReply.open = function(id,p,a){ 
 		    overloaded_comment_reply_open_func(id,p,a);
-		    var name = jQuery("#comment-"+id+" strong")[0].innerHTML.match(/>\s(.*)/)[1];
+				if('$parent_file' == "index.php"){
+					var name = jQuery("#comment-"+id+" cite")[0].innerHTML;
+				}else{
+		    	var name = jQuery("#comment-"+id+" strong")[0].innerHTML.match(/>\s(.*)/)[1];
+				}
 				var first_name = name;
 				if(name.match(/ /) != null){
 					first_name = name.match(/(.*?) /)[1];
