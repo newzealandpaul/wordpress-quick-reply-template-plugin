@@ -27,9 +27,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 define('PW_QUICK_REPLY_TEMPLATE_OPTION', "pw_quick_reply_template");
 define('PW_QUICK_REPLY_TEMPLATE_NAME', "Quick Reply Template");
 
-// Script that will be inserted into edi-comments.php
+// Script that will be inserted into edit-comments.php
 
 function pw_quick_reply_template_comment_script(){
+	$content = addslashes(get_option(PW_QUICK_REPLY_TEMPLATE_OPTION));
+	
 	echo <<<SCRIPT
 	<script type='text/javascript'>
 	if (!(typeof commentReply == 'undefined')){
@@ -38,7 +40,14 @@ function pw_quick_reply_template_comment_script(){
 		commentReply.open = function(id,p,a){ 
 		    overloaded_comment_reply_open_func(id,p,a);
 		    var name = jQuery("#comment-"+id+" strong")[0].innerHTML.match(/>\s(.*)/)[1];
-		    jQuery('#replycontent')[0].value = name+", ";
+				var first_name = name;
+				if(name.match(/ /) != null){
+					first_name = name.match(/(.*?) /)[1];
+				}
+				var content = "$content";
+				content = content.replace(/%NAME%/, name);
+				content = content.replace(/%FIRST_NAME%/, first_name);
+		    jQuery('#replycontent')[0].value = content;
 		}
 	}
 	</script>
