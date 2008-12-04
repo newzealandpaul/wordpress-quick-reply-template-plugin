@@ -24,6 +24,23 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+function pw_quick_reply_template_comment_head(){
+	echo <<<SCRIPT
+	<script type='text/javascript'>
+	if (!(typeof commentReply == 'undefined')){
+		var overloaded_comment_reply_open_func = commentReply.open
 
+		commentReply.open = function(id,p,a){ 
+		    overloaded_comment_reply_open_func(id,p,a);
+		    var name = jQuery("#comment-"+id+" strong")[0].innerHTML.match(/>\s(.*)/)[1];
+		    jQuery('#replycontent')[0].value = name+", ";
+		}
+	}
+	</script>
+	
+SCRIPT;
+}
+
+add_action( "admin_footer", 'pw_quick_reply_template_comment_head', 100);
 
 ?>
