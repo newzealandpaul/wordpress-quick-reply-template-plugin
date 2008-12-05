@@ -41,7 +41,9 @@ function pw_quick_reply_template_comment_script(){
 		
 		commentReply.open = function(id,p,a){ 
 		    var return_value = this.overloaded_comment_reply_open_func(id,p,a);
-				console.log(id+" : "+p+" : "+a)
+
+				// console.log(id+" : "+p+" : "+a)
+
 				if(a == "edit"){
 					return return_value;
 				}
@@ -54,6 +56,9 @@ function pw_quick_reply_template_comment_script(){
 					
 				var name = jQuery("#comment-"+id+" "+css_selector)[0].innerHTML;
 				
+				// strip off leading whitespace
+				name = name.replace(/^\s+/, "");
+				
 				if(name.match(/img/)){
 					name = name.match(/>\s(.*)/)[1];
 				}
@@ -62,6 +67,7 @@ function pw_quick_reply_template_comment_script(){
 				if(name.match(/ /) != null){
 					first_name = name.match(/(.*?) /)[1];
 				}
+				
 				var content = "$content";
 				content = content.replace(/%NAME%/g, name);
 				content = content.replace(/%FIRST_NAME%/g, first_name);
