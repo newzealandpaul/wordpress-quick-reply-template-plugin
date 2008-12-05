@@ -21,6 +21,8 @@ Allows you to specify a reply template for the quick reply feature in Wordpress 
 
 4) Activate the plugin.
 
-5) Open up the options and set your desired template.
+5) Open up the options (In the left hand menu under Settings > Quick Reply Template)
 
-6) When you click reply in the admin comments page, your reply template will be automatically inserted.
+6) Set your desired template.
+
+7) When you click reply in the admin comments page, your reply template will be automatically inserted.
