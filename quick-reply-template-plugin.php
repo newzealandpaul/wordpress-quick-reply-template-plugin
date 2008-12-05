@@ -59,7 +59,7 @@ function pw_quick_reply_template_comment_script(){
 				// strip off leading whitespace
 				name = name.replace(/^\s+/, "");
 				
-				if(name.match(/img/)){
+				if(name.match(/img|IMG/)){
 					name = name.match(/>\s(.*)/)[1];
 				}
 				
