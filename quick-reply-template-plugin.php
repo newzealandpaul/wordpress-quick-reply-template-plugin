@@ -102,9 +102,9 @@ function pw_quick_reply_template_options_page() {
 		<table class="form-table">
 
 		<tr valign="top">
-		<th scope="row">Reply Template</th>
+		<th scope="row"><label for="<?php echo PW_QUICK_REPLY_TEMPLATE_OPTION; ?>">Reply Template</label></th>
 		<td>
-			<textarea name="<?php echo PW_QUICK_REPLY_TEMPLATE_OPTION; ?>"><?php echo get_option(PW_QUICK_REPLY_TEMPLATE_OPTION); ?></textarea>
+			<textarea class="large-text" style="height:100px;" name="<?php echo PW_QUICK_REPLY_TEMPLATE_OPTION; ?>"><?php echo get_option(PW_QUICK_REPLY_TEMPLATE_OPTION); ?></textarea>
 		</td>
 		</tr>
 
