@@ -9,7 +9,9 @@ Allows you to specify a reply template for the quick reply feature in Wordpress 
 
 == Description ==
 
-Allows you to specify a reply template for the quick reply feature in Wordpress 2.7+. The template can contain the comment author's fullname and firstname and any other characters.
+This plugin allows you to specify a default text for the "quick reply" feature in Wordpress 2.7+. 
+
+The template can contain the comment author's fullname, first name and any other characters, spaces, symbols etc.
 
 == Installation ==
 
