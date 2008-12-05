@@ -41,16 +41,23 @@ function pw_quick_reply_template_comment_script(){
 		
 		commentReply.open = function(id,p,a){ 
 		    var return_value = this.overloaded_comment_reply_open_func(id,p,a);
-				
+				console.log(id+" : "+p+" : "+a)
 				if(a == "edit"){
 					return return_value;
 				}
 		
 				if('$parent_file' == "index.php"){
-					var name = jQuery("#comment-"+id+" cite")[0].innerHTML;
+					var css_selector = "cite";
 				}else{
-		    	var name = jQuery("#comment-"+id+" strong")[0].innerHTML.match(/>\s(.*)/)[1];
+					var css_selector = "strong";
 				}
+					
+				var name = jQuery("#comment-"+id+" "+css_selector)[0].innerHTML;
+				
+				if(name.match(/img/)){
+					name = name.match(/>\s(.*)/)[1];
+				}
+				
 				var first_name = name;
 				if(name.match(/ /) != null){
 					first_name = name.match(/(.*?) /)[1];
