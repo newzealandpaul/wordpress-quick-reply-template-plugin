@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Quick Reply Template Plugin
-Plugin URI: http://www.entropytheblog.com/
+Plugin URI: http://www.entropytheblog.com/blog/2008/12/wordpress-quick-reply-template-plugin/
 Description: Allows you to specify a reply template for the quick reply feature in Wordpress 2.7+. The template can contain the comment author's fullname and firstname and any other characters.
 Version: 0.1
 Author: Paul William
