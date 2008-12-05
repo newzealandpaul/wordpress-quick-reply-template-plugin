@@ -40,7 +40,12 @@ function pw_quick_reply_template_comment_script(){
 		commentReply.overloaded_comment_reply_open_func = commentReply.open
 		
 		commentReply.open = function(id,p,a){ 
-		    var return_value = commentReply.overloaded_comment_reply_open_func(id,p,a);
+		    var return_value = this.overloaded_comment_reply_open_func(id,p,a);
+				
+				if(a == "edit"){
+					return return_value;
+				}
+		
 				if('$parent_file' == "index.php"){
 					var name = jQuery("#comment-"+id+" cite")[0].innerHTML;
 				}else{
