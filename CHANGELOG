@@ -1,3 +1,5 @@
+0.4 - Changed default reply template.
+
 0.3 - Improved options.
 
 0.2 - Added comment ID to the list of available tags. Strip HTML from name and first name. Add single empty space after content, so that user can start typing reply immediately.

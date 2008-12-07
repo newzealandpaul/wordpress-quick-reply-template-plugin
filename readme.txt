@@ -1,9 +1,9 @@
 === Quick Reply Template Plugin ===
-Contributors: paulwilliam
+Contributors: paul1999
 Requires at least: 2.7
 Tested up to: 2.7
 Stable tag: trunk
-Tags: reply, template, quick, comments, author
+Tags: reply, template, quick, comments, author, 2.7, admin
 
 Allows you to specify a reply template for the quick reply feature in Wordpress 2.7+.
 
@@ -15,9 +15,11 @@ The template can contain the comment author's fullname, first name, link to the 
 
 = Changelog =
 
+
 View the changelog [here](http://svn.wp-plugins.org/quick-reply-template/trunk/CHANGELOG).
 
 = Credits =
+
 
 Kaspars for adding the comment ID tag.
 
