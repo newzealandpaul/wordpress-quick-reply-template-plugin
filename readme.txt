@@ -13,6 +13,10 @@ This plugin allows you to specify a default text for the "quick reply" feature i
 
 The template can contain the comment author's fullname, first name, link to the original comment and any other characters, spaces, symbols etc.
 
+= Changelog =
+
+View the changelog [here](http://svn.wp-plugins.org/quick-reply-template/trunk/CHANGELOG).
+
 = Credits =
 
 Kaspars for adding the comment ID tag.
@@ -33,8 +37,10 @@ Kaspars for adding the comment ID tag.
 
 7) When you click reply in the admin comments page, your reply template will be automatically inserted.
 
-== Changelog ==
+== Frequently Asked Questions ==
 
-0.2 -- Added comment ID to the list of available tags. Strip HTML from name and first name. Add single empty space after content, so that user can start typing reply immediately.
+= How can I link to the original comment? =
 
-0.1 -- Initial Release
+The %ID% tag contains the comment id of the original comment. You can use this to link to the original. For example:
+
+<a href="#comment-%ID%">%NAME%</a>
