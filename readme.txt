@@ -1,5 +1,5 @@
 === Quick Reply Template Plugin ===
-Contributors: paulwilliam, Kaspars
+Contributors: paulwilliam
 Requires at least: 2.7
 Tested up to: 2.7
 Stable tag: trunk
