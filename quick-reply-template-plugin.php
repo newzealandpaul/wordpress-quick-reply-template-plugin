@@ -2,10 +2,13 @@
 /*
 Plugin Name: Quick Reply Template Plugin
 Plugin URI: http://www.entropytheblog.com/blog/2008/12/wordpress-quick-reply-template-plugin/
-Description: Allows you to specify a reply template for the quick reply feature in Wordpress 2.7+. The template can contain the comment author's fullname and firstname and any other characters.
-Version: 0.1
+Description: Allows you to specify a reply template for the quick reply feature in Wordpress 2.7+. The template can contain the comment author's fullname, firstname, link to the original comment and any other characters.
+Version: 0.2
 Author: Paul William
 Author URI: http://www.entropytheblog.com/blog/
+
+Changelog:
+	0.2 -- Added comment ID to the list of available shortcuts. Strip HTML from name and first name. Add single empty space after content, so that user can start typing reply immediatelly.
 
 Copyright 2008 Paul William
 
@@ -55,23 +58,28 @@ function pw_quick_reply_template_comment_script(){
 				}
 					
 				var name = jQuery("#comment-"+id+" "+css_selector)[0].innerHTML;
-				
+ 
 				// strip off leading whitespace
-				name = name.replace(/^\s+/, "");
+				name = name.replace(/^\s+/, '');
 				
 				if(name.match(/img|IMG/)){
 					name = name.match(/>\s(.*)/)[1];
 				}
-				
+
+				// Strip HTML from name
+				name = name.replace(/<\/?[^>]+>/gi, '');
+
 				var first_name = name;
 				if(name.match(/ /) != null){
 					first_name = name.match(/(.*?) /)[1];
 				}
 				
-				var content = "$content";
+				var content = "$content ";
 				content = content.replace(/%NAME%/g, name);
 				content = content.replace(/%FIRST_NAME%/g, first_name);
-		    jQuery('#replycontent')[0].value = content;
+				content = content.replace(/%ID%/g, id);
+		    		
+				jQuery('#replycontent')[0].value = content;
 				return return_value;
 		}
 	}
@@ -107,6 +115,7 @@ function pw_quick_reply_template_options_page() {
 				<p>The first name of "Paul William" would be "Paul".</p>
 				<p>The first name of "King of Spain" would be "King".</p>
 			</blockquote>
+			<p><strong>%ID%</strong> is replaced with comment ID, which is useful if you want to link to the original comment using something like <code>&lt;a href=&quot;#comment-<strong>%ID%</strong>&quot;&gt;<strong>%NAME%</strong>&lt;/a&gt;</code>.</p>
 		</div>
 	
 		<form method="post" action="options.php">
