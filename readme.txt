@@ -28,3 +28,9 @@ The template can contain the comment author's fullname, first name and any other
 6) Set your desired template.
 
 7) When you click reply in the admin comments page, your reply template will be automatically inserted.
+
+== Changelog ==
+
+0.2 -- Added comment ID to the list of available tags. Strip HTML from name and first name. Add single empty space after content, so that user can start typing reply immediately.
+
+0.1 -- Initial Release

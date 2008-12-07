@@ -7,9 +7,6 @@ Version: 0.2
 Author: Paul William
 Author URI: http://www.entropytheblog.com/blog/
 
-Changelog:
-	0.2 -- Added comment ID to the list of available shortcuts. Strip HTML from name and first name. Add single empty space after content, so that user can start typing reply immediatelly.
-
 Copyright 2008 Paul William
 
 This program is free software; you can redistribute it and/or modify
